@@ -1,4 +1,5 @@
-﻿using Mandatory2DGameFramework.Logger;
+﻿using Mandatory2DGameFramework.Interface;
+using Mandatory2DGameFramework.Logger;
 using Mandatory2DGameFramework.model.attack;
 using Mandatory2DGameFramework.model.defence;
 using Mandatory2DGameFramework.worlds;
@@ -8,11 +9,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Mandatory2DGameFramework.model.Cretures
+namespace Mandatory2DGameFramework.model.Creatures
 {
-    public class Creature
+    public class Creature : ISubject
     {
         private static readonly MyLogger _logger = MyLogger.Instance;
+        private List<IObserver> _observers = new List<IObserver>();
+        private IAttackStrategy _attackStrategy;
+
         public string Name { get; set; }
         public int HitPoints { get; set; }
         public int X { get; set; }
@@ -22,6 +26,7 @@ namespace Mandatory2DGameFramework.model.Cretures
         // Todo consider how many attack / defence weapons are allowed
         public AttackItem? Attack { get; set; }
         public DefenceItem? Defence { get; set; }
+        public void SetAttackStrategy(IAttackStrategy strategy) => _attackStrategy = strategy;
 
         public Creature(string name, int hitPoints, int x, int y, AttackItem? attack = null, DefenceItem? defence = null)
         {
@@ -35,8 +40,13 @@ namespace Mandatory2DGameFramework.model.Cretures
 
         }
 
+        public void Attach(IObserver observer) => _observers.Add(observer);
+        public void Detach(IObserver observer) => _observers?.Remove(observer);
+        public void Notify() => _observers.ForEach(o => o.Update(this));
+
         public int Hit(Creature target)
         {
+            
             if (Attack == null)
             {
                 _logger.LogWarning($"{Name} has no weapon");
@@ -50,6 +60,11 @@ namespace Mandatory2DGameFramework.model.Cretures
                 return 0;
             }
 
+            if (_attackStrategy != null)
+            {
+                return _attackStrategy.Attack(this, target);
+            }
+            
             int damage = Attack.Hit;
             target.ReceiveHit(damage);
             _logger.LogInfo($"{Name} hits {target.Name} with {Attack.Name} for {damage} damage");

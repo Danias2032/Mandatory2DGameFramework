@@ -1,8 +1,9 @@
 ﻿using Mandatory2DGameFramework.Config;
 using Mandatory2DGameFramework.Logger;
 using Mandatory2DGameFramework.model.attack;
-using Mandatory2DGameFramework.model.Cretures;
+using Mandatory2DGameFramework.model.Creatures;
 using Mandatory2DGameFramework.model.defence;
+using Mandatory2DGameFramework.model.strategies;
 using Mandatory2DGameFramework.worlds;
 using System;
 using System.Collections.Generic;
@@ -43,12 +44,16 @@ namespace Mandatory2DGameFramework
             };
 
             Creature warrior = new Creature("Warrior", 2, 3, 100);
-            Creature monster = new Creature("Warrior", 2, 3, 100);
-            Creature monk = new Creature("Warrior", 2, 3, 100);
+            Creature monster = new Creature("Monster", 2, 3, 100);
+            Creature archer = new Creature("Archer", 2, 3, 80);
+
+            warrior.SetAttackStrategy(new MeleeAttackStrategy());
+            monster.SetAttackStrategy(new MeleeAttackStrategy());
+            archer.SetAttackStrategy(new RangedAttackStrategy());
 
             world.AddCreature(warrior);
             world.AddCreature(monster);
-            world.AddCreature(monk);
+            world.AddCreature(archer);
             world.AddWorldObject(sword);
             world.AddWorldObject(shield);
 
@@ -56,6 +61,7 @@ namespace Mandatory2DGameFramework
             monster.Loot(shield);
 
             warrior.Hit(monster);
+            
 
             Console.WriteLine($"{monster.Name}'s remaining HP: {monster.HitPoints}");
            
