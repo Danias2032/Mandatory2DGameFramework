@@ -33,5 +33,12 @@ namespace Mandatory2DGameFramework.worlds
 
         public void AddCreature(Creature creature) => _creatures.Add(creature);
         public void AddWorldObject(WorldObject obj) => _worldObjects.Add(obj);
+        public void RemoveWorldObject(WorldObject obj)
+        {
+            if (obj.Removeable)
+            {
+                _worldObjects.Remove(obj);
+            }
+        }
     }
 }

@@ -16,22 +16,38 @@ namespace Mandatory2DGameFramework
         {
             World world = new World(10, 10);
 
-            AttackItem sword = new AttackItem { Name = "Sword", Hit = 15, Range = 1};
-            DefenceItem shield = new DefenceItem { Name = "Shield", ReduceHitPoint = 5 };
+            AttackItem sword = new AttackItem
+            {
+                Name = "Sword",
+                Hit = 15,
+                Range = 1,
+                Lootable = true,
+                Removeable = true
+            };
+            DefenceItem shield = new DefenceItem
+            {
+                Name = "Shield",
+                ReduceHitPoint = 5,
+                Lootable = true,
+                Removeable = true
+            };
 
-            Creature creature1 = new Creature("Warrior", 2, 3, 100, sword, null);
-            Creature creature2 = new Creature("Warrior", 2, 3, 100, null, shield);
-            Creature creature3 = new Creature("Warrior", 2, 3, 100, sword, shield);
+            Creature warrior = new Creature("Warrior", 2, 3, 100);
+            Creature monster = new Creature("Warrior", 2, 3, 100);
+            Creature monk = new Creature("Warrior", 2, 3, 100);
 
-            world.AddCreature(creature1);
-            world.AddCreature(creature2);
-            world.AddCreature(creature3);
+            world.AddCreature(warrior);
+            world.AddCreature(monster);
+            world.AddCreature(monk);
+            world.AddWorldObject(sword);
+            world.AddWorldObject(shield);
 
-            creature1.Hit(creature2);
-            creature2.Hit(creature3);
-            creature3.Hit(creature1);
+            warrior.Loot(sword);
+            monster.Loot(shield);
 
-            Console.WriteLine($"{creature2.Name}'s remaining HP: {creature2.HitPoints}");
+            warrior.Hit(monster);
+
+            Console.WriteLine($"{monster.Name}'s remaining HP: {monster.HitPoints}");
         }
     }
 }

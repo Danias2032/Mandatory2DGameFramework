@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<GameConfiguration>
+	<World>
+		<MaxX>10</MaxX>
+		<MaxY>10</MaxY>
+	</World>
+
+	<AttackItems>
+		<AttackItem>
+			<Name>Sword</Name>
+			<Hit>15</Hit>
+			<Range>1</Range>
+			<Lootable>true</Lootable>
+			<Removeable>true</Removeable>
+		</AttackItem>
+		<AttaackItem>
+			<Name>Bow</Name>
+			<Hit>10</Hit>
+			<Range>3</Range>
+			<Lootable>true</Lootable>
+			<Removeable>true</Removeable>
+		</AttaackItem>
+	</AttackItems>
+
+	<DefenceItems>
+		<DefenceItem>
+			<Name>Shield</Name>
+			<ReduceHitPoints>5</ReduceHitPoints>
+			<Lootable>true</Lootable>
+			<Removeable>true</Removeable>
+		</DefenceItem>
+	</DefenceItems>
+
+	<Creatures>
+		<Creature>
+			<Name>Warrior</Name>
+			<HitPoints>100</HitPoints>
+			<X>2</X>
+			<Y>3</Y>
+			<InitialAttackItem>Sword</InitialAttackItem>
+			<InitialDefenceItem>Shield</InitialDefenceItem>
+		</Creature>
+		<Creature>
+			<Name>Archer</Name>
+			<HitPoints>80</HitPoints>
+			<X>5</X>
+			<Y>5</Y>
+			<InitialAttackItem>Bow</InitialAttackItem>
+		</Creature>
+	</Creatures>
+</GameConfiguration>

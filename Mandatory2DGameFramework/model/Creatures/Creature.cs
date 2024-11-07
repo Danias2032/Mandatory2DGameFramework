@@ -35,6 +35,11 @@ namespace Mandatory2DGameFramework.model.Cretures
 
         public int Hit(Creature target)
         {
+            if (Attack == null)
+            {
+                Console.WriteLine($"{Name} has no weapon");
+                return 0;
+            }
             if (Attack != null)
             {
                 int damage = Attack.Hit;
@@ -64,6 +69,11 @@ namespace Mandatory2DGameFramework.model.Cretures
 
         public void Loot(WorldObject obj)
         {
+            if (!obj.Lootable)
+            {
+                Console.WriteLine($"{obj.Name} cannot be looted.");
+                return;
+            }
             if (obj is AttackItem attackItem)
             {
                 Attack = attackItem;
