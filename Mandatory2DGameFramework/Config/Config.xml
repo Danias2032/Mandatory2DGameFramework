@@ -13,13 +13,13 @@
 			<Lootable>true</Lootable>
 			<Removeable>true</Removeable>
 		</AttackItem>
-		<AttaackItem>
+		<AttackItem>
 			<Name>Bow</Name>
 			<Hit>10</Hit>
 			<Range>3</Range>
 			<Lootable>true</Lootable>
 			<Removeable>true</Removeable>
-		</AttaackItem>
+		</AttackItem>
 	</AttackItems>
 
 	<DefenceItems>

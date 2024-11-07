@@ -73,7 +73,7 @@ namespace Mandatory2DGameFramework.model.Creatures
 
         public void ReceiveHit(int hit)
         {
-            int defensePoints = Defence?.ReduceHitPoint ?? 0;
+            int defensePoints = Defence?.ReduceHitPoints ?? 0;
             int damage = Math.Max(0, hit - defensePoints);
             HitPoints -= damage;
             _logger.LogInfo($"{Name} receives {damage} damage, remaining HP: {HitPoints}");

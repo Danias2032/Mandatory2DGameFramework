@@ -15,20 +15,22 @@ namespace Mandatory2DGameFramework.model.Templates
         public override Creature CreateCreature()
         {
             var creature = new Creature
-            {
-                Name = "Archer",
-                HitPoints = 80,
-                Attack = new AttackItem
+            (
+                name: "Archer",
+                hitPoints: 80,
+                x: 0,
+                y: 0,
+                attack: new AttackItem
                 {
                     Name = "Bow",
                     Hit = 10,
                     Range = 3
                 },
-                Defence = new DefenceItem
+                defence: new DefenceItem
                 {
                     Lootable = false
                 }
-            };
+            );
             creature.SetAttackStrategy(new RangedAttackStrategy());
             return creature;
         }

@@ -15,8 +15,11 @@ namespace Mandatory2DGameFramework.Config
             GameConfig config = new GameConfig();
 
             var worldElement = doc.Root.Element("World");
-            config.WorldMaxX = int.Parse(worldElement.Element("MaxX").Value);
-            config.WorldMaxY = int.Parse(worldElement.Element("MaxY").Value);
+            if (worldElement != null)
+            {
+                config.WorldMaxX = int.Parse(worldElement.Element("MaxX")?.Value);
+                config.WorldMaxY = int.Parse(worldElement.Element("MaxY")?.Value);
+            }
 
             var attackItems = doc.Root.Element("AttackItems").Elements("AttackItem");
             foreach (var item in attackItems)
@@ -37,7 +40,7 @@ namespace Mandatory2DGameFramework.Config
                 config.DefenceItems.Add(new DefenceItemConfig
                 {
                     Name = item.Element("Name").Value,
-                    ReduceHitPoint = int.Parse(item.Element("ReduceHitPoint").Value),
+                    ReduceHitPoints = int.Parse(item.Element("ReduceHitPoints").Value),
                     Lootable = bool.Parse(item.Element("Lootable").Value),
                     Removeable = bool.Parse(item.Element("Removeable").Value)
                 });

@@ -34,7 +34,7 @@ namespace Mandatory2DGameFramework.Config
     public class DefenceItemConfig 
     {
         public string Name { get; set; }
-        public int ReduceHitPoint { get; set; }
+        public int ReduceHitPoints { get; set; }
         public bool Lootable { get; set; }
         public bool Removeable { get; set; }
     }

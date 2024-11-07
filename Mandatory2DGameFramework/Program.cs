@@ -38,7 +38,7 @@ namespace Mandatory2DGameFramework
             DefenceItem shield = new DefenceItem
             {
                 Name = "Shield",
-                ReduceHitPoint = 5,
+                ReduceHitPoints = 5,
                 Lootable = true,
                 Removeable = true
             };
