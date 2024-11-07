@@ -1,4 +1,5 @@
-﻿using Mandatory2DGameFramework.model.attack;
+﻿using Mandatory2DGameFramework.Logger;
+using Mandatory2DGameFramework.model.attack;
 using Mandatory2DGameFramework.model.defence;
 using Mandatory2DGameFramework.worlds;
 using System;
@@ -11,6 +12,7 @@ namespace Mandatory2DGameFramework.model.Cretures
 {
     public class Creature
     {
+        private static readonly MyLogger _logger = MyLogger.Instance;
         public string Name { get; set; }
         public int HitPoints { get; set; }
         public int X { get; set; }
@@ -37,21 +39,21 @@ namespace Mandatory2DGameFramework.model.Cretures
         {
             if (Attack == null)
             {
-                Console.WriteLine($"{Name} has no weapon");
+                _logger.LogWarning($"{Name} has no weapon");
                 return 0;
             }
-            if (Attack != null)
+
+            double distance = Math.Sqrt(Math.Pow(target.X - X, 2) + Math.Pow(target.Y - Y, 2));
+            if (distance > Attack.Range)
             {
-                int damage = Attack.Hit;
-                target.ReceiveHit(damage);
-                Console.WriteLine($"{Name} hits {target.Name} with {Attack.Name} for {damage} damage");
-                return damage;
-            }
-            else
-            {
-                Console.WriteLine($"{Name} has no weapon");
+                _logger.LogInfo($"{Name} is too far from {target.Name} to attack");
                 return 0;
             }
+
+            int damage = Attack.Hit;
+            target.ReceiveHit(damage);
+            _logger.LogInfo($"{Name} hits {target.Name} with {Attack.Name} for {damage} damage");
+            return damage;
         }
 
         public void ReceiveHit(int hit)
@@ -59,11 +61,11 @@ namespace Mandatory2DGameFramework.model.Cretures
             int defensePoints = Defence?.ReduceHitPoint ?? 0;
             int damage = Math.Max(0, hit - defensePoints);
             HitPoints -= damage;
-            Console.WriteLine($"{Name} receives {damage} damage, remaining HP: {HitPoints}");
+            _logger.LogInfo($"{Name} receives {damage} damage, remaining HP: {HitPoints}");
 
             if (HitPoints <= 0)
             {
-                Console.WriteLine($"{Name} has been defeated");
+                _logger.LogInfo($"{Name} has been defeated");
             }
         }
 
@@ -71,23 +73,36 @@ namespace Mandatory2DGameFramework.model.Cretures
         {
             if (!obj.Lootable)
             {
-                Console.WriteLine($"{obj.Name} cannot be looted.");
+                _logger.LogInfo($"{obj.Name} cannot be looted.");
                 return;
             }
             if (obj is AttackItem attackItem)
             {
                 Attack = attackItem;
-                Console.WriteLine($"{Name} loots {attackItem.Name} as a weapon.");
+                _logger.LogInfo($"{Name} loots {attackItem.Name} as a weapon.");
             }
             else if (obj is DefenceItem defenceItem)
             {
                 Defence = defenceItem;
-                Console.WriteLine($"{Name} loots {defenceItem} as armor.");
+                _logger.LogInfo($"{Name} loots {defenceItem} as armor.");
             }
-            else 
+            else
             {
-                Console.WriteLine($"{Name} cannot loot this item.");
+                _logger.LogInfo($"{Name} cannot loot this item.");
             }
+        }
+
+        public bool CanReachObject(WorldObject obj)
+        {
+            return Attack?.Range > 0;
+        }
+
+        public IEnumerable<Creature> FindTargetsInRange(World world)
+        {
+            if (Attack == null) return Enumerable.Empty<Creature>();
+
+            return world.GetCreaturesInRange(X, Y, Attack.Range)
+                .Where(c => c != this);
         }
 
         public override string ToString()
