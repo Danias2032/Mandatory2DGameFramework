@@ -99,7 +99,7 @@ namespace Mandatory2DGameFramework.model.Creatures
             else if (obj is DefenceItem defenceItem)
             {
                 Defence = defenceItem;
-                _logger.LogInfo($"{Name} loots {defenceItem} as armor.");
+                _logger.LogInfo($"{Name} loots {defenceItem.Name} as armor.");
             }
             else
             {

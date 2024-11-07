@@ -11,13 +11,13 @@ using System.Threading.Tasks;
 
 namespace Mandatory2DGameFramework.Model.Templates
 {
-    public class WarriorTemplate : CreatureTemplate
+    public class MonsterTemplate : CreatureTemplate
     {
         public override Creature CreateCreature()
         {
             var creature = new Creature
             (
-                name: "Warrior",
+                name: "Monster",
                 hitPoints: 100,
                 x: 0,
                 y: 0,
@@ -33,7 +33,7 @@ namespace Mandatory2DGameFramework.Model.Templates
                     ReduceHitPoints = 5
                 }
                 );
-            
+
             creature.SetAttackStrategy(new MeleeAttackStrategy());
             return creature;
         }

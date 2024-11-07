@@ -32,9 +32,9 @@ DefenceItem shield = new DefenceItem
     Removeable = true
 };
 
-Creature warrior = new Creature("Warrior", 2, 3, 100);
-Creature monster = new Creature("Monster", 2, 3, 100);
-Creature archer = new Creature("Archer", 2, 3, 80);
+Creature warrior = new Creature("Warrior", 100, 2, 3);
+Creature monster = new Creature("Monster", 100, 5, 10);
+Creature archer = new Creature("Archer", 80, 2, 3);
 
 warrior.SetAttackStrategy(new MeleeAttackStrategy());
 monster.SetAttackStrategy(new MeleeAttackStrategy());
@@ -51,7 +51,6 @@ monster.Loot(shield);
 
 warrior.Hit(monster);
 
-
-Console.WriteLine($"{monster.Name}'s remaining HP: {monster.HitPoints}");
+logger.LogInfo($"{monster.Name}'s remaining HP: {monster.HitPoints}");
 
 logger.LogInfo("Game ending...");
