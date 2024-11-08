@@ -31,9 +31,17 @@ DefenceItem shield = new DefenceItem
     Lootable = true,
     Removeable = true
 };
+AttackItem bow = new AttackItem
+{
+    Name = "Bow",
+    Hit = 10,
+    Range = 3,
+    Lootable = true,
+    Removeable = true
+};
 
 Creature warrior = new Creature("Warrior", 100, 2, 3);
-Creature monster = new Creature("Monster", 100, 5, 10);
+Creature monster = new Creature("Monster", 100, 2, 4);
 Creature archer = new Creature("Archer", 80, 2, 3);
 
 warrior.SetAttackStrategy(new MeleeAttackStrategy());
@@ -50,6 +58,9 @@ warrior.Loot(sword);
 monster.Loot(shield);
 
 warrior.Hit(monster);
+
+archer.Loot(bow);
+archer.Hit(monster);
 
 logger.LogInfo($"{monster.Name}'s remaining HP: {monster.HitPoints}");
 

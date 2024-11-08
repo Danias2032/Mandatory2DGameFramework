@@ -18,7 +18,7 @@ namespace Mandatory2DGameFramework.model.strategies
                 return 0;
             }
             var distance = Math.Sqrt(Math.Pow(attacker.X - target.X, 2) + Math.Pow(attacker.Y - target.Y, 2));
-            int damage = (int)(attacker.Attack.Hit * (1 - distance / (attacker.Attack.Range *2)));
+            int damage = (int)(attacker.Attack.Hit * (1 - distance / (attacker.Attack.Range * 2)));
             target.ReceiveHit(damage);
             MyLogger.Instance.LogInfo($"{attacker.Name} shoots {target.Name} for {damage} damage.");
             return damage;
