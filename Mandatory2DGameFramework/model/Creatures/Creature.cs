@@ -22,8 +22,6 @@ namespace Mandatory2DGameFramework.model.Creatures
         public int X { get; set; }
         public int Y { get; set; }
 
-
-        // Todo consider how many attack / defence weapons are allowed
         public AttackItem? Attack { get; set; }
         public DefenceItem? Defence { get; set; }
         public void SetAttackStrategy(IAttackStrategy strategy) => _attackStrategy = strategy;
@@ -37,16 +35,21 @@ namespace Mandatory2DGameFramework.model.Creatures
             HitPoints = hitPoints;
             Attack = attack;
             Defence = defence;
-
         }
 
         public void Attach(IObserver observer) => _observers.Add(observer);
         public void Detach(IObserver observer) => _observers?.Remove(observer);
-        public void Notify() => _observers.ForEach(o => o.Update(this));
+        public void Notify(string message)
+        {
+            foreach (var observer in _observers)
+            {
+                observer.Update(message);
+            }
+        }
+        //public void Notify() => _observers.ForEach(o => o.Update(this));
 
         public int Hit(Creature target)
         {
-            
             if (Attack == null)
             {
                 _logger.LogWarning($"{Name} has no weapon");
@@ -64,7 +67,7 @@ namespace Mandatory2DGameFramework.model.Creatures
             {
                 return _attackStrategy.Attack(this, target);
             }
-            
+
             int damage = Attack.Hit;
             target.ReceiveHit(damage);
             _logger.LogInfo($"{Name} hits {target.Name} with {Attack.Name} for {damage} damage");
