@@ -13,10 +13,12 @@ namespace Mandatory2DGameFramework.model.Creatures
 {
     public class Creature : ISubject
     {
+        private static int _nextId = 0;
         private static readonly MyLogger _logger = MyLogger.Instance;
         private List<IObserver> _observers = new List<IObserver>();
         private IAttackStrategy _attackStrategy;
 
+        public int Id { get; }
         public string Name { get; set; }
         public int HitPoints { get; set; }
         public int X { get; set; }
@@ -28,6 +30,7 @@ namespace Mandatory2DGameFramework.model.Creatures
 
         public Creature(string name, int hitPoints, int x, int y, AttackItem? attack = null, DefenceItem? defence = null)
         {
+            Id = _nextId++;
             Name = name;
             HitPoints = 100;
             X = y;

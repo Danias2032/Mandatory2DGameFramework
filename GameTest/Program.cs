@@ -14,6 +14,11 @@ MyLogger logger = MyLogger.Instance;
 logger.AddListener(new ConsoleTraceListener());
 logger.AddListener(new TextWriterTraceListener());
 
+CreatureLINQ creatureLINQ = new CreatureLINQ
+{
+    _CreatureList = new List<Creature>()
+};
+
 logger.LogInfo("Game starting...");
 
 var config = ConfigLoader.LoadConfig("Config.xml");
@@ -47,12 +52,36 @@ Creature warrior = new Creature("Warrior", 100, 2, 3);
 Creature monster = new Creature("Monster", 100, 2, 4);
 Creature monster2 = new Creature("Monster2", 100, 2, 4);
 Creature archer = new Creature("Archer", 80, 2, 3);
+
 ArcherTemplate archerTemplate = new();
 Creature archer1 = archerTemplate.CreateCreature();
 
 warrior.SetAttackStrategy(new MeleeAttackStrategy());
 monster.SetAttackStrategy(new MeleeAttackStrategy());
 archer.SetAttackStrategy(new RangedAttackStrategy());
+
+creatureLINQ._CreatureList.Add(new Creature("Goblin", 80, 4, 5));
+creatureLINQ._CreatureList.Add(new Creature("Orc", 120, 4, 5));
+creatureLINQ._CreatureList.Add(new Creature("Elf", 65, 4, 5));
+
+// LINQ Search, HP > 70
+var strongCreatures = creatureLINQ.GetCreaturesWithHitPointsAbove(70);
+Console.WriteLine("Creatures with HP above 70:");
+foreach (Creature creature in strongCreatures)
+{
+    Console.WriteLine($"{creature.Name} - HP: {creature.HitPoints}");
+}
+
+var groupedCreatures = creatureLINQ.GroupCreaturesByType();
+Console.WriteLine("Creatures group by type:");
+foreach (var group in groupedCreatures)
+{
+    Console.WriteLine($"Type: {group.Key}");
+    foreach (var creature in group.Value)
+    {
+        Console.WriteLine($"{creature.Name} - HP: {creature.HitPoints}");
+    }
+}
 
 world.AddCreature(warrior);
 world.AddCreature(monster);
@@ -77,6 +106,9 @@ Console.WriteLine("Observer - End");
 monster.ReceiveHit(25);
 monster.ReceiveHit(10);
 Console.WriteLine("Monster - Defeat");
+
+Console.WriteLine($"{warrior.Name} - ID: {warrior.Id}");
+Console.WriteLine($"{archer1.Name} - ID: {archer1.Id}");
 
 warrior.Hit(monster2);
 archer.Loot(bow);

@@ -9,6 +9,11 @@ namespace Mandatory2DGameFramework.model.Templates
 {
     public abstract class CreatureTemplate
     {
+        /// <summary>
+        /// Design Pattern: Template
+        /// Override i Archer, Monster, Warrior.
+        /// </summary>
+        /// <returns></returns>
         public abstract Creature CreateCreature();
     }
 }
