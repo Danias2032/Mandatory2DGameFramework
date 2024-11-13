@@ -28,11 +28,13 @@ namespace Mandatory2DGameFramework.model.Templates
                 },
                 defence: new DefenceItem
                 {
-                    
+
                 }
             );
             creature.SetAttackStrategy(new RangedAttackStrategy());
-            return creature;
+            {
+                return creature;
+            }
         }
     }
 }

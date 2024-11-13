@@ -32,10 +32,12 @@ namespace Mandatory2DGameFramework.Model.Templates
                     Name = "Shield",
                     ReduceHitPoints = 5
                 }
-                );
+            );
 
             creature.SetAttackStrategy(new MeleeAttackStrategy());
-            return creature;
+            {
+                return creature;
+            }
         }
     }
 }
