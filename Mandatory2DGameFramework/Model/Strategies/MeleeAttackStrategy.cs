@@ -11,6 +11,13 @@ namespace Mandatory2DGameFramework.model.strategies
 {
     public class MeleeAttackStrategy : IAttackStrategy
     {
+        /// <summary>
+        /// Angrebs strategi for nærkamp,
+        /// direkte, ingen fall off, ved afstand.
+        /// </summary>
+        /// <param name="attacker"></param>
+        /// <param name="target"></param>
+        /// <returns></returns>
         public int Attack(Creature attacker, Creature target)
         {
             if (attacker.Attack == null)

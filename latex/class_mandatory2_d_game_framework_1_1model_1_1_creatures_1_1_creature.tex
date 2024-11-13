@@ -1,0 +1,149 @@
+\doxysection{Creature Class Reference}
+\hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature}{}\label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature}\index{Creature@{Creature}}
+Inheritance diagram for Creature\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\doxysubsubsection*{Properties}
+\doxysubsubsection*{Private Attributes}
+\doxysubsubsection*{Static Private Attributes}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a6732a012f36c0e5c06dbb4ff4a294256}\index{Creature@{Creature}!Creature@{Creature}}
+\index{Creature@{Creature}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Creature()}{Creature()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a6732a012f36c0e5c06dbb4ff4a294256} 
+Creature (\begin{DoxyParamCaption}\item[{string}]{name}{, }\item[{int}]{hit\+Points}{, }\item[{int}]{x}{, }\item[{int}]{y}{, }\item[{Attack\+Item?}]{attack}{ = {\ttfamily null}, }\item[{Defence\+Item?}]{defence}{ = {\ttfamily null}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function/\+Procedure/\+Process Documentation}
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ac467113d4603d4037f9184b007459f67}\index{Creature@{Creature}!Attach@{Attach}}
+\index{Attach@{Attach}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Attach()}{Attach()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ac467113d4603d4037f9184b007459f67} 
+void Attach (\begin{DoxyParamCaption}\item[{IObserver}]{observer}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_adb7ad490a1f14bb4f406ae41f0ee201d}\index{Creature@{Creature}!CanReachObject@{CanReachObject}}
+\index{CanReachObject@{CanReachObject}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{CanReachObject()}{CanReachObject()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_adb7ad490a1f14bb4f406ae41f0ee201d} 
+bool Can\+Reach\+Object (\begin{DoxyParamCaption}\item[{World\+Object}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ada62eb7b8b653825f558b529f86fc534}\index{Creature@{Creature}!Detach@{Detach}}
+\index{Detach@{Detach}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Detach()}{Detach()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ada62eb7b8b653825f558b529f86fc534} 
+void Detach (\begin{DoxyParamCaption}\item[{IObserver}]{observer}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ab3b84ee2cfd001ff66cc5c494989cf51}\index{Creature@{Creature}!FindTargetsInRange@{FindTargetsInRange}}
+\index{FindTargetsInRange@{FindTargetsInRange}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{FindTargetsInRange()}{FindTargetsInRange()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ab3b84ee2cfd001ff66cc5c494989cf51} 
+IEnumerable$<$Creature$>$ Find\+Targets\+In\+Range (\begin{DoxyParamCaption}\item[{World}]{world}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a42c5e4207d8f424ec1fb6be38b18482d}\index{Creature@{Creature}!Hit@{Hit}}
+\index{Hit@{Hit}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Hit()}{Hit()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a42c5e4207d8f424ec1fb6be38b18482d} 
+int Hit (\begin{DoxyParamCaption}\item[{Creature}]{target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ac8d34eb02727a0fc62654aea2b0d9ba5}\index{Creature@{Creature}!Loot@{Loot}}
+\index{Loot@{Loot}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Loot()}{Loot()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ac8d34eb02727a0fc62654aea2b0d9ba5} 
+void Loot (\begin{DoxyParamCaption}\item[{World\+Object}]{obj}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a5bcd817315c0e931aa7a09119a952783}\index{Creature@{Creature}!Notify@{Notify}}
+\index{Notify@{Notify}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Notify()}{Notify()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a5bcd817315c0e931aa7a09119a952783} 
+void Notify (\begin{DoxyParamCaption}\item[{string}]{message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a16d18abf57ef1cea9325c13d94cb56ba}\index{Creature@{Creature}!ReceiveHit@{ReceiveHit}}
+\index{ReceiveHit@{ReceiveHit}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{ReceiveHit()}{ReceiveHit()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a16d18abf57ef1cea9325c13d94cb56ba} 
+void Receive\+Hit (\begin{DoxyParamCaption}\item[{int}]{hit}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a080f8f2bd4236be61903d2560c34b3db}\index{Creature@{Creature}!SetAttackStrategy@{SetAttackStrategy}}
+\index{SetAttackStrategy@{SetAttackStrategy}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{SetAttackStrategy()}{SetAttackStrategy()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a080f8f2bd4236be61903d2560c34b3db} 
+void Set\+Attack\+Strategy (\begin{DoxyParamCaption}\item[{IAttack\+Strategy}]{strategy}{}\end{DoxyParamCaption})}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a0f3468a8ecdabe447401d0f0bb9a8c50}\index{Creature@{Creature}!ToString@{ToString}}
+\index{ToString@{ToString}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{ToString()}{ToString()}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a0f3468a8ecdabe447401d0f0bb9a8c50} 
+override string To\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a0e575b3a0609cb89f589d27a2faca7d0}\index{Creature@{Creature}!\_attackStrategy@{\_attackStrategy}}
+\index{\_attackStrategy@{\_attackStrategy}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{\_attackStrategy}{\_attackStrategy}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a0e575b3a0609cb89f589d27a2faca7d0} 
+IAttack\+Strategy \+\_\+attack\+Strategy\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a5e44ec494765af30bb19baabcff4e4a6}\index{Creature@{Creature}!\_logger@{\_logger}}
+\index{\_logger@{\_logger}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{\_logger}{\_logger}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a5e44ec494765af30bb19baabcff4e4a6} 
+readonly My\+Logger \+\_\+logger = My\+Logger.\+Instance\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a6df035a122b2c522d3af834939fca3a1}\index{Creature@{Creature}!\_observers@{\_observers}}
+\index{\_observers@{\_observers}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{\_observers}{\_observers}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a6df035a122b2c522d3af834939fca3a1} 
+List$<$IObserver$>$ \+\_\+observers = new List$<$IObserver$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_abc47cf0cbd3b24736b343f916c1f05c0}\index{Creature@{Creature}!Attack@{Attack}}
+\index{Attack@{Attack}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Attack}{Attack}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_abc47cf0cbd3b24736b343f916c1f05c0} 
+Attack\+Item? Attack\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ad3f8e17ec2c6247e71ce68d284fa2008}\index{Creature@{Creature}!Defence@{Defence}}
+\index{Defence@{Defence}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Defence}{Defence}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_ad3f8e17ec2c6247e71ce68d284fa2008} 
+Defence\+Item? Defence\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a16d9873505981b11b4c2cd8e8cc65851}\index{Creature@{Creature}!HitPoints@{HitPoints}}
+\index{HitPoints@{HitPoints}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{HitPoints}{HitPoints}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a16d9873505981b11b4c2cd8e8cc65851} 
+int Hit\+Points\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a7ee9065718e6628dc7791b756fa6c0f9}\index{Creature@{Creature}!Name@{Name}}
+\index{Name@{Name}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a7ee9065718e6628dc7791b756fa6c0f9} 
+string Name\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a80c0944640e62d3ed6c5419c1bcc0c88}\index{Creature@{Creature}!X@{X}}
+\index{X@{X}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{X}{X}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_a80c0944640e62d3ed6c5419c1bcc0c88} 
+int X\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+\Hypertarget{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_aa482c4cc86a24474e4fb19b5b5978778}\index{Creature@{Creature}!Y@{Y}}
+\index{Y@{Y}!Creature@{Creature}}
+\doxysubsubsection{\texorpdfstring{Y}{Y}}
+{\footnotesize\ttfamily \label{class_mandatory2_d_game_framework_1_1model_1_1_creatures_1_1_creature_aa482c4cc86a24474e4fb19b5b5978778} 
+int Y\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [set]}}
+
+
+
+The documentation for this design unit was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Mandatory2\+DGame\+Framework/\+Model/\+Creatures/\mbox{\hyperlink{_creature_8cs}{Creature.\+cs}}\end{DoxyCompactItemize}

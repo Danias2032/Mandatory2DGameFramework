@@ -46,7 +46,6 @@ namespace Mandatory2DGameFramework.model.Creatures
                 observer.Update(message);
             }
         }
-        //public void Notify() => _observers.ForEach(o => o.Update(this));
 
         public int Hit(Creature target)
         {
@@ -80,11 +79,12 @@ namespace Mandatory2DGameFramework.model.Creatures
             int damage = Math.Max(0, hit - defensePoints);
             HitPoints -= damage;
             _logger.LogInfo($"{Name} receives {damage} damage, remaining HP: {HitPoints}");
-
+            Notify($"{Name} received {hit} damage.");
             if (HitPoints <= 0)
             {
                 _logger.LogInfo($"{Name} has been defeated");
             }
+
         }
 
         public void Loot(WorldObject obj)

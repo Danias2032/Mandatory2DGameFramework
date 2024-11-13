@@ -10,14 +10,14 @@ namespace Mandatory2DGameFramework.model.observers
 {
     public class CreatureObserver : IObserver
     {
+        /// <summary>
+        /// Sender en besked fra objektet det er sat på,
+        /// når det ændrer tilstand, f.eks. mister HP.
+        /// </summary>
+        /// <param name="message"></param>
         public void Update(string message)
         {
             Console.WriteLine($"Observer received update: {message}");
         }
-
-        //public void Update(Creature creature)
-        //{
-        //    Console.WriteLine($"[{creature.Name} now has {creature.HitPoints} HP.");
-        //}
     }
 }

@@ -12,6 +12,5 @@ namespace Mandatory2DGameFramework.Interface
     public interface IObserver
     {
         void Update(string message);
-        //void Update(Creature creature);
     }
 }

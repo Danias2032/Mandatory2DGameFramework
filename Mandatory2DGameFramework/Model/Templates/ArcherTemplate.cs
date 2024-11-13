@@ -28,7 +28,7 @@ namespace Mandatory2DGameFramework.model.Templates
                 },
                 defence: new DefenceItem
                 {
-                    Lootable = false
+                    
                 }
             );
             creature.SetAttackStrategy(new RangedAttackStrategy());

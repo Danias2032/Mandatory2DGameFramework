@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['range_0',['Range',['../class_mandatory2_d_game_framework_1_1_config_1_1_attack_item_config.html#a4920fb95c5e51a4a0c0e50a5daceb455',1,'Mandatory2DGameFramework.Config.AttackItemConfig.Range'],['../class_mandatory2_d_game_framework_1_1model_1_1attack_1_1_attack_item.html#a4920fb95c5e51a4a0c0e50a5daceb455',1,'Mandatory2DGameFramework.model.attack.AttackItem.Range']]],
+  ['reducehitpoints_1',['ReduceHitPoints',['../class_mandatory2_d_game_framework_1_1_config_1_1_defence_item_config.html#abb2db499a725db5209945eb3d4409c42',1,'Mandatory2DGameFramework.Config.DefenceItemConfig.ReduceHitPoints'],['../class_mandatory2_d_game_framework_1_1model_1_1defence_1_1_defence_item.html#abb2db499a725db5209945eb3d4409c42',1,'Mandatory2DGameFramework.model.defence.DefenceItem.ReduceHitPoints']]],
+  ['removeable_2',['Removeable',['../class_mandatory2_d_game_framework_1_1_config_1_1_attack_item_config.html#a7dc1b30c3c99d6658a94e64888f18c67',1,'Mandatory2DGameFramework.Config.AttackItemConfig.Removeable'],['../class_mandatory2_d_game_framework_1_1_config_1_1_defence_item_config.html#a7dc1b30c3c99d6658a94e64888f18c67',1,'Mandatory2DGameFramework.Config.DefenceItemConfig.Removeable'],['../class_mandatory2_d_game_framework_1_1worlds_1_1_world_object.html#a7dc1b30c3c99d6658a94e64888f18c67',1,'Mandatory2DGameFramework.worlds.WorldObject.Removeable']]]
+];

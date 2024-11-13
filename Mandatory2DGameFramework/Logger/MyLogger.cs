@@ -10,10 +10,16 @@ namespace Mandatory2DGameFramework.Logger
 {
     public class MyLogger
     {
-        // Singleton instance 
+        /// <summary>
+        /// Singleton instance 
+        /// </summary>
         private static MyLogger? _instance;
-        // Thread safety
-        private static readonly object _lock = new object();
+
+        /// <summary>
+        /// Thread safety
+        /// </summary>
+        private static readonly object _lock = new();
+
         private List<TraceListener> _listeners;
 
         internal MyLogger()
@@ -21,7 +27,9 @@ namespace Mandatory2DGameFramework.Logger
             _listeners = new List<TraceListener>();
         }
 
-        // Get af Singleton
+        /// <summary>
+        /// Get af Singleton
+        /// </summary>
         public static MyLogger Instance
         {
             get
@@ -41,6 +49,10 @@ namespace Mandatory2DGameFramework.Logger
             }
         }
 
+        /// <summary>
+        /// Add listener hvis der ikke allerede er en.
+        /// </summary>
+        /// <param name="listener"></param>
         public void AddListener(TraceListener listener)
         {
             if (!_listeners.Contains(listener))
@@ -54,6 +66,11 @@ namespace Mandatory2DGameFramework.Logger
             _listeners.Remove(listener);
         }
 
+        /// <summary>
+        /// Sender DateTime med når der bliver logget.
+        /// </summary>
+        /// <param name="message"></param>
+        /// <param name="level"></param>
         public void Log(string message, LogLevel level = LogLevel.Info)
         {
             string formattedMessage = $"[{DateTime.Now:yyyy-MM-dd HH:mm:ss}] [{level}] {message}";
@@ -64,21 +81,26 @@ namespace Mandatory2DGameFramework.Logger
             }
         }
 
+        /// <summary>
+        /// Logger har sin egen instansiering
+        /// </summary>
+        /// <returns></returns>
         internal static MyLogger GetInstance()
         {
             if (_instance == null)
             {
                 lock (_lock)
                 {
-                    if (_instance == null)
-                    {
-                        _instance = new MyLogger();
-                    }
+                    _instance ??= new MyLogger();
                 }
-                
             }
             return _instance;
         }
+
+        /// <summary>
+        /// Log niveauer
+        /// </summary>
+        /// <param name="message"></param>
 
         public void LogInfo(string message) => Log(message, LogLevel.Info);
         public void LogWarning(string message) => Log(message, LogLevel.Warning);
